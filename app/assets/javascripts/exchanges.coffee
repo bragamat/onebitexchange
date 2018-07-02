@@ -5,10 +5,6 @@ $(document).ready ->
 
   $('form').submit (event) ->
     event.preventDefault()
-    if $("#theImg").val() == true
-      console.log('ja existe')
-    else
-    $('#double_arrow').append('<img id="theImg" src="http://blog.teamtreehouse.com/wp-content/uploads/2015/05/loading.gif" />')
     if $('form').attr('action') == '/convert'
       $.ajax '/convert',
           type: 'GET'
@@ -26,7 +22,11 @@ $(document).ready ->
         return false;
   $ ->
     $('input#amount').on "input", ->
-     $('form').submit()
+      if $('img#theImg').val() == undefined
+        $('#double_arrow').append('<img id="theImg" src="http://blog.teamtreehouse.com/wp-content/uploads/2015/05/loading.gif" />')
+        $('form').submit()
+      else  
+        $('form').submit()
   $ -> 
     $('a#double_arrow').click (event)->
       event.preventDefault()
