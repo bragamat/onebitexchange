@@ -33,4 +33,5 @@ $(document).ready ->
       a = $("#source_currency").val()
       $("#source_currency").val($("#target_currency").val())
       $("#target_currency").val(a)
+      $('form').submit()
   
