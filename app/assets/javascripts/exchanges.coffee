@@ -34,4 +34,11 @@ $(document).ready ->
       $("#source_currency").val($("#target_currency").val())
       $("#target_currency").val(a)
       $('form').submit()
+  $ ->
+    $('#source_currency').on "change", ->
+      $('form').submit()
+  $ ->
+    $("#target_currency").on "change", ->
+      $('form').submit()      
+         
   
